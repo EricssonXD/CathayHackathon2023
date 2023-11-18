@@ -50,17 +50,17 @@ class CustomBottomBarState extends State<CustomBottomBar> {
       height: 80.v,
       decoration: BoxDecoration(
         color: appTheme.gray30033,
-        boxShadow: [
-          BoxShadow(
-            color: theme.colorScheme.primary,
-            spreadRadius: 2.h,
-            blurRadius: 2.h,
-            offset: Offset(
-              0,
-              4,
-            ),
-          ),
-        ],
+        // boxShadow: [
+        // BoxShadow(
+        //   color: theme.colorScheme.primary,
+        //   spreadRadius: 2.h,
+        //   blurRadius: 2.h,
+        //   offset: Offset(
+        //     0,
+        //     4,
+        //   ),
+        // ),
+        // ],
       ),
       child: SizedBox(
         height: double.infinity,
@@ -72,7 +72,8 @@ class CustomBottomBarState extends State<CustomBottomBar> {
                 onTap: () =>
                     Navigator.pushNamed(context, bottomMenuList[index].route),
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CustomImageView(

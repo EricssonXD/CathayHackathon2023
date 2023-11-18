@@ -1,7 +1,10 @@
+import 'package:good_trip/widgets/custom_elevated_button.dart';
+
+import '../tickets_page_screen/widgets/ticketspage_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:good_trip/core/app_export.dart';
 import 'package:good_trip/widgets/app_bar/appbar_leading_image.dart';
-import 'package:good_trip/widgets/app_bar/appbar_title.dart';
+import 'package:good_trip/widgets/app_bar/appbar_subtitle_one.dart';
 import 'package:good_trip/widgets/app_bar/custom_app_bar.dart';
 
 class TicketsPageScreen extends StatelessWidget {
@@ -11,110 +14,91 @@ class TicketsPageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
     return SafeArea(
-      child: Scaffold(
-        appBar: _buildAppBar(context),
-        body: Container(
-          width: double.maxFinite,
-          padding: EdgeInsets.symmetric(horizontal: 79.h, vertical: 50.v),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _TicketWidget(),
-              Spacer(flex: 62),
-              Container(
-                  height: 3.adaptSize,
-                  width: 3.adaptSize,
-                  margin: EdgeInsets.only(left: 8.h),
-                  decoration: BoxDecoration(
-                      color: appTheme.gray50001,
-                      borderRadius: BorderRadius.circular(1.h))),
-              Spacer(flex: 37)
-            ],
-          ),
-        ),
-      ),
-    );
+        child: Scaffold(
+            body: SizedBox(
+                width: double.maxFinite,
+                child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 14.v),
+                    // decoration: AppDecoration.fillGray,
+                    child: Column(children: [
+                      _buildAppBar(context),
+                      SizedBox(height: 23.v),
+                      _buildTicketsPage(context),
+                      SizedBox(height: 23.v),
+                      _buildBackStack(context),
+                    ])))));
   }
 
   /// Section Widget
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
-        // leadingWidth: 24.h,
+        height: 25.v,
+        // leadingWidth: 27.h,
         // leading: AppbarLeadingImage(
-        //     imagePath: ImageConstant.imgArrowLeft,
-        //     margin: EdgeInsets.only(left: 15.h, top: 19.v, bottom: 20.v),
+        //     imagePath: ImageConstant.imgArrowLeftOnprimarycontainer,
+        //     margin: EdgeInsets.only(left: 14.h, top: 6.v, bottom: 4.v),
         //     onTap: () {
         //       onTapArrowLeft(context);
         //     }),
         centerTitle: true,
-        title: AppbarTitle(text: "Tickets"));
+        title: AppbarSubtitleOne(text: "Tickets"));
+  }
+
+  /// Section Widget
+  Widget _buildTicketsPage(BuildContext context) {
+    return Expanded(
+        child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 31.h),
+            child: ListView.separated(
+                physics: BouncingScrollPhysics(),
+                shrinkWrap: true,
+                separatorBuilder: (context, index) {
+                  return SizedBox(height: 15.v);
+                },
+                itemCount: 2,
+                itemBuilder: (context, index) {
+                  return TicketspageItemWidget(onTapZhuhaiHongKong: () {
+                    onTapZhuhaiHongKong(context);
+                  });
+                })));
+  }
+
+  /// Navigates to the ticketsInfoScreen when the action is triggered.
+  onTapZhuhaiHongKong(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.ticketsInfoScreen);
   }
 
   /// Navigates back to the previous screen.
   onTapArrowLeft(BuildContext context) {
     Navigator.pop(context);
   }
-
-  /// Navigates to the ticketsInfoScreen when the action is triggered.
-  onTapImgImageEighteen(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.ticketsInfoScreen);
-  }
 }
 
-class _TicketWidget extends StatelessWidget {
-  const _TicketWidget();
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(20),
-      onTap: () => Navigator.pushNamed(context, AppRoutes.ticketsInfoScreen),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            CustomImageView(
-              imagePath: ImageConstant.imgImage18,
-              height: 168.v,
-              width: 231.h,
-              radius: BorderRadius.circular(20.h),
-              // onTap: () {
-              //   onTapImgImageEighteen(context);
-              // },
-            ),
-            SizedBox(height: 20.v),
-            Row(
-              children: [
-                Container(
-                    height: 18.v,
-                    width: 13.h,
-                    margin: EdgeInsets.only(bottom: 2.v, left: 3.h),
-                    child: Stack(alignment: Alignment.center, children: [
-                      Align(
-                          alignment: Alignment.topCenter,
-                          child: Container(
-                              height: 3.adaptSize,
-                              width: 3.adaptSize,
-                              margin: EdgeInsets.only(top: 5.v),
-                              decoration: BoxDecoration(
-                                  color: appTheme.gray50001,
-                                  borderRadius: BorderRadius.circular(1.h)))),
-                      CustomImageView(
-                          imagePath: ImageConstant.imgLocation,
-                          height: 18.v,
-                          width: 13.h,
-                          alignment: Alignment.center)
-                    ])),
-                Padding(
-                  padding: EdgeInsets.only(left: 7.h),
-                  child: Text("Macau -> Hong Kong",
-                      style: CustomTextStyles.bodyMediumBlack9000115),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+Widget _buildBackStack(BuildContext context) {
+  return SizedBox(
+      height: 104.v,
+      width: double.maxFinite,
+      child: Stack(alignment: Alignment.topCenter, children: [
+        Align(
+            alignment: Alignment.center,
+            child: Container(
+                margin: EdgeInsets.only(right: 1.h),
+                padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 18.v),
+                // decoration: AppDecoration.fillGray,
+                child: Column(mainAxisSize: MainAxisSize.min, children: [
+                  SizedBox(height: 16.v),
+                  CustomElevatedButton(
+                      text: "Back",
+                      onPressed: () {
+                        Navigator.pop(context);
+                      })
+                ]))),
+        Align(
+            alignment: Alignment.topCenter,
+            child: SizedBox(width: double.maxFinite, child: Divider()))
+      ]));
 }
+
+// onTapBack(BuildContext context) {
+//   Navigator.pop(context);
+// }

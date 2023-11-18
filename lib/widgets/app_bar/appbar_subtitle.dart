@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:good_trip/core/app_export.dart';
 
 // ignore: must_be_immutable
-class AppbarLeadingCircleimage extends StatelessWidget {
-  AppbarLeadingCircleimage({
+class AppbarSubtitle extends StatelessWidget {
+  AppbarSubtitle({
     Key? key,
-    this.imagePath,
+    required this.text,
     this.margin,
     this.onTap,
   }) : super(
           key: key,
         );
 
-  String? imagePath;
+  String text;
 
   EdgeInsetsGeometry? margin;
 
@@ -20,20 +20,16 @@ class AppbarLeadingCircleimage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadiusStyle.circleBorder24,
+    return GestureDetector(
       onTap: () {
-        onTap?.call();
+        onTap!.call();
       },
       child: Padding(
         padding: margin ?? EdgeInsets.zero,
-        child: CustomImageView(
-          imagePath: imagePath,
-          height: 48.adaptSize,
-          width: 48.adaptSize,
-          fit: BoxFit.contain,
-          radius: BorderRadius.circular(
-            24.h,
+        child: Text(
+          text,
+          style: theme.textTheme.headlineSmall!.copyWith(
+            color: appTheme.black900,
           ),
         ),
       ),
