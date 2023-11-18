@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:goodtrip/core/app_export.dart';
+import 'package:good_trip/core/app_export.dart';
 
 class CustomTextFormField extends StatelessWidget {
   CustomTextFormField({
@@ -105,7 +105,8 @@ class CustomTextFormField extends StatelessWidget {
         suffixIconConstraints: suffixConstraints,
         isDense: true,
         contentPadding: contentPadding ?? EdgeInsets.all(12.h),
-        fillColor: fillColor ?? appTheme.whiteA700.withOpacity(0.9),
+        fillColor: fillColor ??
+            theme.colorScheme.onSecondaryContainer.withOpacity(0.9),
         filled: filled,
         border: borderDecoration ??
             OutlineInputBorder(
@@ -127,7 +128,7 @@ class CustomTextFormField extends StatelessWidget {
 
 /// Extension on [CustomTextFormField] to facilitate inclusion of all types of border style etc
 extension TextFormFieldStyleHelper on CustomTextFormField {
-  static OutlineInputBorder get fillWhiteA => OutlineInputBorder(
+  static OutlineInputBorder get fillOnSecondaryContainer1 => OutlineInputBorder(
         borderSide: BorderSide.none,
       );
 }

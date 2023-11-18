@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:goodtrip/core/app_export.dart';
+import 'package:good_trip/core/app_export.dart';
 
 class AppDecoration {
   // Fill decorations
-  static BoxDecoration get fillWhiteA => BoxDecoration(
-        color: appTheme.whiteA700.withOpacity(0.7),
+  static BoxDecoration get fillGray => BoxDecoration(
+        color: appTheme.gray5001,
       );
-  static BoxDecoration get fillWhiteA700 => BoxDecoration(
-        color: appTheme.whiteA700,
+  static BoxDecoration get fillOnSecondaryContainer => BoxDecoration(
+        color: theme.colorScheme.onSecondaryContainer,
+      );
+  static BoxDecoration get fillOnSecondaryContainer1 => BoxDecoration(
+        color: theme.colorScheme.onSecondaryContainer.withOpacity(1),
       );
 
   // Outline decorations
   static BoxDecoration get outlinePrimary => BoxDecoration(
-        color: appTheme.whiteA700,
+        color: theme.colorScheme.onSecondaryContainer.withOpacity(1),
         boxShadow: [
           BoxShadow(
             color: theme.colorScheme.primary,
@@ -26,7 +29,7 @@ class AppDecoration {
         ],
       );
   static BoxDecoration get outlinePrimary1 => BoxDecoration(
-        color: appTheme.gray200,
+        color: appTheme.gray20001,
         boxShadow: [
           BoxShadow(
             color: theme.colorScheme.primary,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:goodtrip/core/app_export.dart';
-import 'package:goodtrip/widgets/base_button.dart';
+import 'package:good_trip/core/app_export.dart';
+import 'package:good_trip/widgets/base_button.dart';
 
 class CustomElevatedButton extends BaseButton {
   CustomElevatedButton({

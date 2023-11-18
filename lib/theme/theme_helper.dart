@@ -48,7 +48,24 @@ class ThemeHelper {
       visualDensity: VisualDensity.standard,
       colorScheme: colorScheme,
       textTheme: TextThemes.textTheme(colorScheme),
-      scaffoldBackgroundColor: appTheme.whiteA700,
+      scaffoldBackgroundColor: colorScheme.onSecondaryContainer.withOpacity(1),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          side: BorderSide(
+            color: appTheme.blueGray60002,
+            width: 1.h,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.h),
+          ),
+          visualDensity: const VisualDensity(
+            vertical: -4,
+            horizontal: -4,
+          ),
+          padding: EdgeInsets.zero,
+        ),
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: appTheme.gray400F2,
@@ -62,27 +79,10 @@ class ThemeHelper {
           padding: EdgeInsets.zero,
         ),
       ),
-      outlinedButtonTheme: OutlinedButtonThemeData(
-        style: OutlinedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          side: BorderSide(
-            color: appTheme.gray400,
-            width: 1.h,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.h),
-          ),
-          visualDensity: const VisualDensity(
-            vertical: -4,
-            horizontal: -4,
-          ),
-          padding: EdgeInsets.zero,
-        ),
-      ),
       dividerTheme: DividerThemeData(
-        thickness: 1,
-        space: 1,
-        color: colorScheme.primary.withOpacity(0.5),
+        thickness: 40,
+        space: 40,
+        color: appTheme.gray200,
       ),
     );
   }
@@ -98,8 +98,8 @@ class ThemeHelper {
 class TextThemes {
   static TextTheme textTheme(ColorScheme colorScheme) => TextTheme(
         bodyLarge: TextStyle(
-          color: colorScheme.primary.withOpacity(0.5),
-          fontSize: 16.fSize,
+          color: colorScheme.primary.withOpacity(1),
+          fontSize: 18.fSize,
           fontFamily: 'Inter',
           fontWeight: FontWeight.w400,
         ),
@@ -133,6 +133,18 @@ class TextThemes {
           fontFamily: 'Inter',
           fontWeight: FontWeight.w400,
         ),
+        labelLarge: TextStyle(
+          color: appTheme.blueGray60003,
+          fontSize: 12.fSize,
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w700,
+        ),
+        labelMedium: TextStyle(
+          color: colorScheme.primary.withOpacity(1),
+          fontSize: 10.fSize,
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w500,
+        ),
         titleLarge: TextStyle(
           color: colorScheme.primary.withOpacity(1),
           fontSize: 20.fSize,
@@ -140,10 +152,16 @@ class TextThemes {
           fontWeight: FontWeight.w400,
         ),
         titleMedium: TextStyle(
-          color: colorScheme.primary.withOpacity(1),
+          color: appTheme.blueGray50,
           fontSize: 16.fSize,
           fontFamily: 'Inter',
           fontWeight: FontWeight.w700,
+        ),
+        titleSmall: TextStyle(
+          color: colorScheme.primary.withOpacity(1),
+          fontSize: 14.fSize,
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w500,
         ),
       );
 }
@@ -153,26 +171,41 @@ class ColorSchemes {
   static final primaryColorScheme = ColorScheme.light(
     // Primary colors
     primary: Color(0X3F000000),
+    primaryContainer: Color(0XFF1A0707),
+
+    // Error colors
+    errorContainer: Color(0XFFADABAB),
 
     // On colors(text colors)
-    onPrimary: Color(0XFF1A0707),
-    onPrimaryContainer: Color(0XF2C57A75),
+    onPrimary: Color(0XFF313131),
+    onPrimaryContainer: Color(0XFF305C63),
+    onSecondaryContainer: Color(0XB2FFFFFF),
   );
 }
 
 /// Class containing custom colors for a primary theme.
 class PrimaryColors {
   // Black
-  Color get black900 => Color(0XFF100202);
-  Color get black90001 => Color(0XFF190707);
+  Color get black900 => Color(0XFF190707);
+  Color get black90001 => Color(0XFF100202);
+
+  // BlueGray
+  Color get blueGray50 => Color(0XFFEDF5F6);
+  Color get blueGray600 => Color(0XFF3F807A);
+  Color get blueGray60001 => Color(0XFF417A73);
+  Color get blueGray60002 => Color(0XFF3C817C);
+  Color get blueGray60003 => Color(0XFF517977);
 
   // Gray
-  Color get gray200 => Color(0XFFEAEAEA);
+  Color get gray200 => Color(0XFFEDEDED);
+  Color get gray20001 => Color(0XFFEAEAEA);
+  Color get gray20002 => Color(0XFFE7E7E7);
   Color get gray30033 => Color(0X33E2E2E2);
   Color get gray400 => Color(0XFFC7C7C7);
   Color get gray50 => Color(0XFFFBFBFB);
-  Color get gray500 => Color(0XFFADABAB);
+  Color get gray500 => Color(0XFFAAAAAA);
   Color get gray50001 => Color(0XFFA5A5A5);
+  Color get gray5001 => Color(0XFFF8F8F8);
 
   // GrayF
   Color get gray400F2 => Color(0XF2C0D0B4);
@@ -180,8 +213,8 @@ class PrimaryColors {
   // LightGreenF
   Color get lightGreen200F2 => Color(0XF2D0F5AA);
 
-  // White
-  Color get whiteA700 => Color(0XFFFFFFFF);
+  // RedF
+  Color get red300F2 => Color(0XF2C57A75);
 }
 
 PrimaryColors get appTheme => ThemeHelper().themeColor();

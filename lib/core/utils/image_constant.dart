@@ -2,50 +2,40 @@ class ImageConstant {
   // Image folder path
   static String imagePath = 'assets/images';
 
-  // Welcome Screen images
-  static String imgIphone14Getstart = '$imagePath/img_iphone_14_getstart.png';
+  // Splash Screen images
+  static String imgSplashScreen = '$imagePath/img_splash_screen.png';
 
-  // iPhone 14 - reginfo images
-  static String imgGroup32 = '$imagePath/img_group_32.png';
+  // Redirecting Page images
+  static String img8134x390 = '$imagePath/img_8_1_34x390.png';
 
-  static String imgVector = '$imagePath/img_vector.svg';
+  static String imgImage24 = '$imagePath/img_image_24.png';
 
-  // iPhone 14 - Regislation images
-  static String imgLogogoogle = '$imagePath/img_logogoogle.svg';
-
-  static String imgLogowechat = '$imagePath/img_logowechat.svg';
-
-  // iPhone 14 - Email Redirectio  images
-  static String imgImage23 = '$imagePath/img_image_23.png';
-
-  // iPhone 14 - Collection Two images
+  // Journey Page images
   static String imgImage19 = '$imagePath/img_image_19.png';
-
-  static String imgImage20 = '$imagePath/img_image_20.png';
 
   static String imgLocationGray50001 =
       '$imagePath/img_location_gray_500_01.svg';
 
-  // iPhone 14 - Collection One images
+  // Luggage Page images
   static String imgImage22 = '$imagePath/img_image_22.png';
 
-  // iPhone 14 - Collection Three images
+  // Tickets Info images
   static String imgImage18200x390 = '$imagePath/img_image_18_200x390.png';
 
-  // iPhone 14 - Profile images
+  static String imgImage21226x226 = '$imagePath/img_image_21_226x226.png';
+
+  // Profile Page images
   static String imgImage395x95 = '$imagePath/img_image_3_95x95.png';
 
   // Common images
-  static String imgIphone14Regislation =
-      '$imagePath/img_iphone_14_regislation.png';
-
-  static String imgVectorPrimary = '$imagePath/img_vector_primary.svg';
-
   static String imgImage3 = '$imagePath/img_image_3.png';
 
   static String imgSearch = '$imagePath/img_search.svg';
 
-  static String imgNotification = '$imagePath/img_notification.svg';
+  static String imgVectorPrimary24x22 =
+      '$imagePath/img_vector_primary_24x22.svg';
+
+  static String imgVectorPrimary = '$imagePath/img_vector_primary.svg';
 
   static String imgImage18 = '$imagePath/img_image_18.png';
 
@@ -61,9 +51,9 @@ class ImageConstant {
 
   static String imgArrowLeft = '$imagePath/img_arrow_left.svg';
 
-  static String imgTrash = '$imagePath/img_trash.svg';
+  static String imgImage20 = '$imagePath/img_image_20.png';
 
-  static String imgImage2249x49 = '$imagePath/img_image_22_49x49.png';
+  static String imgTrash = '$imagePath/img_trash.svg';
 
   static String imageNotFound = 'assets/images/image_not_found.png';
 }

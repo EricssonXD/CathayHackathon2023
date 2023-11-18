@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:goodtrip/core/app_export.dart';
+import 'package:good_trip/core/app_export.dart';
 
 class AppNavigationScreen extends StatelessWidget {
   const AppNavigationScreen({Key? key})
@@ -29,69 +29,63 @@ class AppNavigationScreen extends StatelessWidget {
                       children: [
                         _buildScreenTitle(
                           context,
-                          screenTitle: "Welcome Screen".tr,
-                          onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.welcomeScreen),
+                          screenTitle: "Splash Screen",
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(context, AppRoutes.splashScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "iPhone 14 - reginfo".tr,
+                          screenTitle: "Redirecting Page",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.iphone14ReginfoScreen),
+                              context, AppRoutes.redirectingPageScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "iPhone 14 - Regislation".tr,
+                          screenTitle: "Home Page Shell",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.iphone14RegislationScreen),
+                              context, AppRoutes.homePageShellScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "iPhone 14 - GetStart One".tr,
+                          screenTitle: "Journey Page",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.iphone14GetstartOneScreen),
+                              context, AppRoutes.journeyPageScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "iPhone 14 - Email Redirectio ".tr,
+                          screenTitle: "Luggage Page",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.iphone14EmailRedirectioScreen),
+                              context, AppRoutes.luggagePageScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "iPhone 14 - Home Page - Container".tr,
-                          onTapScreenTitle: () => onTapScreenTitle(context,
-                              AppRoutes.iphone14HomePageContainerScreen),
+                          screenTitle: "Luggage Scan",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.luggageScanScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "iPhone 14 - Collection Two".tr,
+                          screenTitle: "Luggage Info",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.iphone14CollectionTwoScreen),
+                              context, AppRoutes.luggageInfoScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "iPhone 14 - Collection One".tr,
+                          screenTitle: "Tickets Page",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.iphone14CollectionOneScreen),
+                              context, AppRoutes.ticketsPageScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "iPhone 14 - Collection".tr,
+                          screenTitle: "Tickets Info",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.iphone14CollectionScreen),
+                              context, AppRoutes.ticketsInfoScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "iPhone 14 - Collection Three".tr,
+                          screenTitle: "Profile Page",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.iphone14CollectionThreeScreen),
-                        ),
-                        _buildScreenTitle(
-                          context,
-                          screenTitle: "iPhone 14 - Profile".tr,
-                          onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.iphone14ProfileScreen),
+                              context, AppRoutes.profilePageScreen),
                         ),
                       ],
                     ),
@@ -119,7 +113,7 @@ class AppNavigationScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.h),
               child: Text(
-                "App Navigation".tr,
+                "App Navigation",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(0XFF000000),
@@ -136,8 +130,7 @@ class AppNavigationScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(left: 20.h),
               child: Text(
-                "Check your app's UI from the below demo screens of your app."
-                    .tr,
+                "Check your app's UI from the below demo screens of your app.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(0XFF888888),

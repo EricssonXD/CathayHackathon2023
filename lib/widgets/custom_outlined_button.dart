@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:goodtrip/core/app_export.dart';
-import 'package:goodtrip/widgets/base_button.dart';
+import 'package:good_trip/core/app_export.dart';
+import 'package:good_trip/widgets/base_button.dart';
 
 class CustomOutlinedButton extends BaseButton {
   CustomOutlinedButton({
@@ -49,7 +49,7 @@ class CustomOutlinedButton extends BaseButton {
   }
 
   Widget get buildOutlinedButtonWidget => Container(
-        height: this.height ?? 62.v,
+        height: this.height ?? 42.v,
         width: this.width ?? double.maxFinite,
         margin: margin,
         decoration: decoration,
@@ -63,7 +63,8 @@ class CustomOutlinedButton extends BaseButton {
               leftIcon ?? const SizedBox.shrink(),
               Text(
                 text,
-                style: buttonTextStyle ?? CustomTextStyles.bodyMedium15,
+                style: buttonTextStyle ??
+                    CustomTextStyles.titleMediumPrimaryMedium17,
               ),
               rightIcon ?? const SizedBox.shrink(),
             ],

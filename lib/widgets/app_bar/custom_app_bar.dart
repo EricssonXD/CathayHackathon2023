@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:goodtrip/core/app_export.dart';
+import 'package:good_trip/core/app_export.dart';
 
 // ignore: must_be_immutable
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -31,11 +31,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0,
-      toolbarHeight: height ?? 56.v,
+      toolbarHeight: height,
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
-      leadingWidth: leadingWidth ?? 0,
-      leading: leading,
+      leadingWidth: leadingWidth,
+      leading: leading ??
+          IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(Icons.arrow_back_ios_new),
+          ),
       title: title,
       titleSpacing: 0,
       centerTitle: centerTitle ?? false,

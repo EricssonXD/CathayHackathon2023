@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'core/app_export.dart';
-import 'package:goodtrip/theme/theme_helper.dart';
-import 'package:goodtrip/routes/app_routes.dart';
+import 'package:good_trip/theme/theme_helper.dart';
+import 'package:good_trip/routes/app_routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,22 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
-      title: 'goodtrip',
+      title: 'good_trip',
       debugShowCheckedModeBanner: false,
-      navigatorKey: NavigatorService.navigatorKey,
-      localizationsDelegates: [
-        AppLocalizationDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [
-        Locale(
-          'en',
-          '',
-        ),
-      ],
-      initialRoute: AppRoutes.welcomeScreen,
+      initialRoute: AppRoutes.splashScreen,
       routes: AppRoutes.routes,
     );
   }

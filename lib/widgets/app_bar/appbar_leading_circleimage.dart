@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:goodtrip/core/app_export.dart';
+import 'package:good_trip/core/app_export.dart';
 
 // ignore: must_be_immutable
 class AppbarLeadingCircleimage extends StatelessWidget {
@@ -23,7 +23,7 @@ class AppbarLeadingCircleimage extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadiusStyle.circleBorder24,
       onTap: () {
-        onTap!.call();
+        onTap?.call();
       },
       child: Padding(
         padding: margin ?? EdgeInsets.zero,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:goodtrip/core/app_export.dart';
+import 'package:good_trip/core/app_export.dart';
 
 class CustomBottomBar extends StatefulWidget {
   CustomBottomBar({this.onChanged});
@@ -17,27 +17,31 @@ class CustomBottomBarState extends State<CustomBottomBar> {
     BottomMenuModel(
       icon: ImageConstant.imgNavJourney,
       activeIcon: ImageConstant.imgNavJourney,
-      title: "lbl_journey".tr,
+      title: "Journey",
       type: BottomBarEnum.Journey,
+      route: AppRoutes.journeyPageScreen,
     ),
     BottomMenuModel(
       icon: ImageConstant.imgNavLuggage,
       activeIcon: ImageConstant.imgNavLuggage,
-      title: "lbl_luggage".tr,
+      title: "Luggage",
       type: BottomBarEnum.Luggage,
+      route: AppRoutes.luggagePageScreen,
     ),
     BottomMenuModel(
       icon: ImageConstant.imgNavTickets,
       activeIcon: ImageConstant.imgNavTickets,
-      title: "lbl_tickets".tr,
+      title: "Tickets",
       type: BottomBarEnum.Tickets,
+      route: AppRoutes.ticketsPageScreen,
     ),
-    BottomMenuModel(
-      icon: ImageConstant.imgNavProfile,
-      activeIcon: ImageConstant.imgNavProfile,
-      title: "lbl_profile".tr,
-      type: BottomBarEnum.Profile,
-    )
+    // BottomMenuModel(
+    //   icon: ImageConstant.imgNavProfile,
+    //   activeIcon: ImageConstant.imgNavProfile,
+    //   title: "Profile",
+    //   type: BottomBarEnum.Profile,
+    //   route: AppRoutes.profilePageScreen,
+    // )
   ];
 
   @override
@@ -46,9 +50,6 @@ class CustomBottomBarState extends State<CustomBottomBar> {
       height: 80.v,
       decoration: BoxDecoration(
         color: appTheme.gray30033,
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(30.h),
-        ),
         boxShadow: [
           BoxShadow(
             color: theme.colorScheme.primary,
@@ -61,66 +62,40 @@ class CustomBottomBarState extends State<CustomBottomBar> {
           ),
         ],
       ),
-      child: BottomNavigationBar(
-        backgroundColor: Colors.transparent,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        selectedFontSize: 0,
-        elevation: 0,
-        currentIndex: selectedIndex,
-        type: BottomNavigationBarType.fixed,
-        items: List.generate(bottomMenuList.length, (index) {
-          return BottomNavigationBarItem(
-            icon: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CustomImageView(
-                  imagePath: bottomMenuList[index].icon,
-                  height: 18.v,
-                  width: 22.h,
-                  color: theme.colorScheme.primary.withOpacity(1),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 10.v),
-                  child: Text(
-                    bottomMenuList[index].title ?? "",
-                    style: theme.textTheme.bodySmall!.copyWith(
+      child: SizedBox(
+        height: double.infinity,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: List.generate(bottomMenuList.length, (index) {
+            return Expanded(
+              child: InkWell(
+                onTap: () =>
+                    Navigator.pushNamed(context, bottomMenuList[index].route),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CustomImageView(
+                      imagePath: bottomMenuList[index].activeIcon,
+                      height: 23.v,
+                      width: 15.h,
                       color: theme.colorScheme.primary.withOpacity(1),
                     ),
-                  ),
-                ),
-              ],
-            ),
-            activeIcon: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CustomImageView(
-                  imagePath: bottomMenuList[index].activeIcon,
-                  height: 23.v,
-                  width: 15.h,
-                  color: theme.colorScheme.primary.withOpacity(1),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 7.v),
-                  child: Text(
-                    bottomMenuList[index].title ?? "",
-                    style: theme.textTheme.bodySmall!.copyWith(
-                      color: theme.colorScheme.primary.withOpacity(1),
+                    Padding(
+                      padding: EdgeInsets.only(top: 7.v),
+                      child: Text(
+                        bottomMenuList[index].title ?? "",
+                        style: theme.textTheme.bodySmall!.copyWith(
+                          color: theme.colorScheme.primary.withOpacity(1),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-            label: '',
-          );
-        }),
-        onTap: (index) {
-          selectedIndex = index;
-          widget.onChanged?.call(bottomMenuList[index].type);
-          setState(() {});
-        },
+              ),
+            );
+          }),
+        ),
       ),
     );
   }
@@ -139,6 +114,7 @@ class BottomMenuModel {
     required this.activeIcon,
     this.title,
     required this.type,
+    required this.route,
   });
 
   String icon;
@@ -148,6 +124,8 @@ class BottomMenuModel {
   String? title;
 
   BottomBarEnum type;
+
+  String route;
 }
 
 class DefaultWidget extends StatelessWidget {
