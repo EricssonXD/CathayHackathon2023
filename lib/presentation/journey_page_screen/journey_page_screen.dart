@@ -223,6 +223,6 @@ class JourneyPageScreen extends StatelessWidget {
 
   /// Navigates to the homePageShellContainerScreen when the action is triggered.
   onTapBack(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.homePageShellContainerScreen);
+    Navigator.pop(context);
   }
 }
