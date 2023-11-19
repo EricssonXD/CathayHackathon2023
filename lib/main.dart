@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: theme,
-      title: 'good_trip',
+      title: 'Good Trip',
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.homePageShellContainerScreen,
       routes: AppRoutes.routes,
