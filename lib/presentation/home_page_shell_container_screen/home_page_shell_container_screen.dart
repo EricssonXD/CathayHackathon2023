@@ -15,6 +15,7 @@ class HomePageShellContainerScreen extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
             appBar: AppBar(
+              leading: SizedBox(),
               forceMaterialTransparency: true,
               backgroundColor: Colors.transparent,
               actionsIconTheme: IconThemeData(color: Colors.black),
