@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:good_trip/core/app_export.dart';
+import 'package:good_trip/presentation/tickets_page_screen/tickets_page_screen.dart';
 import 'package:good_trip/widgets/custom_elevated_button.dart';
 
 class TicketsInfoScreen extends StatelessWidget {
-  const TicketsInfoScreen({Key? key}) : super(key: key);
-
+  const TicketsInfoScreen({Key? key, required this.details}) : super(key: key);
+  final TicketDetails details;
   @override
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
@@ -38,7 +39,8 @@ class TicketsInfoScreen extends StatelessWidget {
                                 style: CustomTextStyles
                                     .titleMediumOnPrimaryContainer))
                       ])),
-                  SizedBox(height: 22.v),
+                  // SizedBox(height: 22.v),
+                  Spacer(),
                   _buildBackStack(context)
                 ]))));
   }
@@ -56,10 +58,10 @@ class TicketsInfoScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Column(children: [
-                    Text("08:00 HKT",
+                    Text("${details.startTime} HKT",
                         style: CustomTextStyles.bodyMediumBlack90014_1),
                     SizedBox(height: 14.v),
-                    Text("Zhuhai",
+                    Text(details.startLocation,
                         style: CustomTextStyles.bodySmallOnSecondaryContainer)
                   ]),
                   CustomImageView(
@@ -71,10 +73,11 @@ class TicketsInfoScreen extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      Text("09:30 HKT",
+                      Text("${details.endTime} HKT",
                           style: CustomTextStyles.bodyMediumBlack90014_1),
                       SizedBox(height: 14.v),
-                      Text("Hong Kong", style: theme.textTheme.bodySmall)
+                      Text(details.endLocation,
+                          style: theme.textTheme.bodySmall)
                     ],
                   )
                 ])));
@@ -101,7 +104,8 @@ class TicketsInfoScreen extends StatelessWidget {
                         margin: EdgeInsets.only(bottom: 4.v)),
                     Padding(
                         padding: EdgeInsets.only(left: 8.h, top: 3.v),
-                        child: Text("Zhuhai -> Hong Kong",
+                        child: Text(
+                            "${details.startLocation} -> ${details.endLocation}",
                             style: theme.textTheme.bodyMedium))
                   ]),
               SizedBox(height: 6.v),
@@ -116,7 +120,7 @@ class TicketsInfoScreen extends StatelessWidget {
                         margin: EdgeInsets.only(bottom: 2.v)),
                     Padding(
                         padding: EdgeInsets.only(left: 8.h),
-                        child: Text("18 - 11 - 2023",
+                        child: Text(details.date,
                             style: theme.textTheme.bodyMedium))
                   ]),
               SizedBox(height: 10.v),
@@ -157,17 +161,12 @@ class TicketsInfoScreen extends StatelessWidget {
                     CustomElevatedButton(
                         text: "Back",
                         onPressed: () {
-                          onTapBack(context);
+                          Navigator.pop(context);
                         })
                   ]))),
           Align(
               alignment: Alignment.topCenter,
               child: SizedBox(width: double.maxFinite, child: Divider()))
         ]));
-  }
-
-  /// Navigates to the ticketsPageScreen when the action is triggered.
-  onTapBack(BuildContext context) {
-    Navigator.pop(context);
   }
 }

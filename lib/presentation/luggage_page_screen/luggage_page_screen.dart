@@ -21,13 +21,17 @@ class LuggagePageScreen extends StatelessWidget {
           width: double.maxFinite,
           child: Column(
             children: [
-              CustomImageView(
-                imagePath: ImageConstant.imgImage22480x312,
-                height: 480.v,
-                width: 312.h,
+              InkWell(
+                onTap: () => Navigator.pushNamed(
+                    context, AppRoutes.luggagePageSelectedScreen),
+                child: CustomImageView(
+                  imagePath: ImageConstant.imgImage22480x312,
+                  height: 480.v,
+                  width: 312.h,
+                ),
               ),
               SizedBox(height: 5.v),
-              _buildBackStack(context),
+              Expanded(child: _buildBackStack(context)),
             ],
           ),
         ),
@@ -57,14 +61,17 @@ class LuggagePageScreen extends StatelessWidget {
     //   ),
     //   styleType: Style.bgFill,
     // );
-    return AppBar(
-      centerTitle: true,
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      title: AppbarSubtitleOne(
-        text: "Luggage",
-      ),
-    );
+    return CustomAppBar(
+        height: 50.v,
+        // leadingWidth: 27.h,
+        // leading: AppbarLeadingImage(
+        //     imagePath: ImageConstant.imgArrowLeftOnprimarycontainer,
+        //     margin: EdgeInsets.only(left: 14.h, top: 6.v, bottom: 4.v),
+        //     onTap: () {
+        //       onTapArrowLeft(context);
+        //     }),
+        centerTitle: true,
+        title: AppbarSubtitleOne(text: "Luggage"));
   }
 
   /// Section Widget
@@ -76,16 +83,17 @@ class LuggagePageScreen extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         children: [
           Align(
-            alignment: Alignment.center,
+            alignment: Alignment.bottomCenter,
             child: Container(
+              // width: double.maxFinite,
               margin: EdgeInsets.only(right: 1.h),
               padding: EdgeInsets.symmetric(
                 horizontal: 16.h,
                 vertical: 34.v,
               ),
-              // decoration: AppDecoration.fillGray,
+              decoration: AppDecoration.fillGray,
               child: Column(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   SizedBox(height: 12.v),
@@ -98,22 +106,14 @@ class LuggagePageScreen extends StatelessWidget {
                     "Have you checked in yet?",
                     style: CustomTextStyles.bodyMediumBlack90014_1,
                   ),
-                  SizedBox(height: 66.v),
+                  // SizedBox(height: 66.v),
+                  Spacer(),
                   CustomElevatedButton(
+                    margin: EdgeInsets.symmetric(horizontal: 16.h),
                     text: "Back",
                     onPressed: () => Navigator.of(context).pop(),
                   ),
                 ],
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 103.v),
-              child: SizedBox(
-                width: double.maxFinite,
-                child: Divider(),
               ),
             ),
           ),

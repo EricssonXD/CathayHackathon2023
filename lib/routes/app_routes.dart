@@ -7,7 +7,7 @@ import 'package:good_trip/presentation/luggage_info_screen/luggage_info_screen.d
 import 'package:good_trip/presentation/luggage_page_screen/luggage_page_screen.dart';
 import 'package:good_trip/presentation/luggage_page_selected_screen/luggage_page_selected_screen.dart';
 import 'package:good_trip/presentation/tickets_page_screen/tickets_page_screen.dart';
-import 'package:good_trip/presentation/tickets_info_screen/tickets_info_screen.dart';
+// import 'package:good_trip/presentation/tickets_info_screen/tickets_info_screen.dart';
 import 'package:good_trip/presentation/app_navigation_screen/app_navigation_screen.dart';
 
 class AppRoutes {
@@ -44,7 +44,7 @@ class AppRoutes {
     luggagePageScreen: (context) => LuggagePageScreen(),
     luggagePageSelectedScreen: (context) => LuggagePageSelectedScreen(),
     ticketsPageScreen: (context) => TicketsPageScreen(),
-    ticketsInfoScreen: (context) => TicketsInfoScreen(),
+    // ticketsInfoScreen: (context) => TicketsInfoScreen(),
     appNavigationScreen: (context) => AppNavigationScreen()
   };
 }

@@ -6,9 +6,20 @@ class TicketspageItemWidget extends StatelessWidget {
   TicketspageItemWidget({
     Key? key,
     this.onTapZhuhaiHongKong,
+    required this.startTime,
+    required this.endTime,
+    required this.startLocation,
+    required this.endLocation,
+    required this.date,
   }) : super(
           key: key,
         );
+
+  final String date;
+  final String startTime;
+  final String endTime;
+  final String startLocation;
+  final String endLocation;
 
   VoidCallback? onTapZhuhaiHongKong;
 
@@ -46,14 +57,14 @@ class TicketspageItemWidget extends StatelessWidget {
                 children: [
                   CustomImageView(
                     imagePath: ImageConstant.imgLocationOnprimarycontainer13x10,
-                    height: 13.v,
-                    width: 10.h,
+                    height: 15.adaptSize,
+                    width: 15.adaptSize,
                     margin: EdgeInsets.only(bottom: 4.v),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 14.h),
+                    padding: EdgeInsets.only(left: 11.h),
                     child: Text(
-                      "Zhuhai -> Hong Kong",
+                      "$startLocation -> $endLocation",
                       style: theme.textTheme.bodyMedium,
                     ),
                   ),
@@ -74,7 +85,7 @@ class TicketspageItemWidget extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 11.h),
                     child: Text(
-                      "18 - 11 - 2023",
+                      date,
                       style: theme.textTheme.bodyMedium,
                     ),
                   ),
@@ -98,7 +109,7 @@ class TicketspageItemWidget extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 11.h),
                     child: Text(
-                      "08:00 - 09:30 HKT",
+                      "$startTime - $endTime HKT",
                       style: theme.textTheme.bodyMedium,
                     ),
                   ),

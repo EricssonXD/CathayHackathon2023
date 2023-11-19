@@ -1,3 +1,4 @@
+import 'package:good_trip/presentation/tickets_info_screen/tickets_info_screen.dart';
 import 'package:good_trip/widgets/custom_elevated_button.dart';
 
 import '../tickets_page_screen/widgets/ticketspage_item_widget.dart';
@@ -47,20 +48,32 @@ class TicketsPageScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildTicketsPage(BuildContext context) {
     return Expanded(
-        child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 31.h),
-            child: ListView.separated(
-                physics: BouncingScrollPhysics(),
-                shrinkWrap: true,
-                separatorBuilder: (context, index) {
-                  return SizedBox(height: 15.v);
-                },
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return TicketspageItemWidget(onTapZhuhaiHongKong: () {
-                    onTapZhuhaiHongKong(context);
-                  });
-                })));
+        child: ListView.separated(
+            physics: BouncingScrollPhysics(),
+            shrinkWrap: true,
+            separatorBuilder: (context, index) {
+              return SizedBox(height: 15.v);
+            },
+            itemCount: 2,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 31.h),
+                child: TicketspageItemWidget(
+                  onTapZhuhaiHongKong: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) =>
+                          TicketsInfoScreen(details: _tickets[index]),
+                    ));
+                    // TicketsInfoScreen()
+                  },
+                  date: _tickets[index].date,
+                  endLocation: _tickets[index].endLocation,
+                  startLocation: _tickets[index].startLocation,
+                  endTime: _tickets[index].endTime,
+                  startTime: _tickets[index].startTime,
+                ),
+              );
+            }));
   }
 
   /// Navigates to the ticketsInfoScreen when the action is triggered.
@@ -102,3 +115,36 @@ Widget _buildBackStack(BuildContext context) {
 // onTapBack(BuildContext context) {
 //   Navigator.pop(context);
 // }
+
+const _tickets = <TicketDetails>[
+  TicketDetails(
+    startLocation: "Zhuhai",
+    endLocation: "Hong Kong",
+    date: "18 - 11 - 2023",
+    endTime: "09:30",
+    startTime: "08:00",
+  ),
+  TicketDetails(
+    endLocation: "Zhuhai",
+    startLocation: "Hong Kong",
+    date: "25 - 11 - 2023",
+    endTime: "17:30",
+    startTime: "16:00",
+  ),
+];
+
+class TicketDetails {
+  const TicketDetails({
+    required this.startTime,
+    required this.endTime,
+    required this.startLocation,
+    required this.endLocation,
+    required this.date,
+  });
+
+  final String date;
+  final String startTime;
+  final String endTime;
+  final String startLocation;
+  final String endLocation;
+}

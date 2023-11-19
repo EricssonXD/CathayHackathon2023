@@ -16,15 +16,25 @@ class HomePageShellContainerScreen extends StatelessWidget {
         child: Scaffold(
             appBar: AppBar(
               forceMaterialTransparency: true,
+              backgroundColor: Colors.transparent,
+              actionsIconTheme: IconThemeData(color: Colors.black),
             ),
             endDrawer: Drawer(
               width: 220,
-              child: CustomImageView(
-                imagePath: ImageConstant.imgDrawer,
-                fit: BoxFit.contain,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    CustomImageView(
+                      imagePath: ImageConstant.imgDrawer,
+                      fit: BoxFit.contain,
+                    ),
+                  ],
+                ),
               ),
             ),
-            extendBody: true,
+            // extendBody: true,
             extendBodyBehindAppBar: true,
             body: HomePageShellPage(),
             bottomNavigationBar: _buildBottomBar(context)));
