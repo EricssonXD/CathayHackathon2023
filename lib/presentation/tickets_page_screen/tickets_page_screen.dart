@@ -4,7 +4,6 @@ import 'package:good_trip/widgets/custom_elevated_button.dart';
 import '../tickets_page_screen/widgets/ticketspage_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:good_trip/core/app_export.dart';
-import 'package:good_trip/widgets/app_bar/appbar_leading_image.dart';
 import 'package:good_trip/widgets/app_bar/appbar_subtitle_one.dart';
 import 'package:good_trip/widgets/app_bar/custom_app_bar.dart';
 

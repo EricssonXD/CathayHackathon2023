@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/scheduler.dart';
+// import 'package:flutter/scheduler.dart';
 import 'package:good_trip/theme/theme_helper.dart';
 import 'package:good_trip/routes/app_routes.dart';
 
